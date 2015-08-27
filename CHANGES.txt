@@ -1,0 +1,10 @@
+lightweight tag 89fe1c05204910be80d01c15a6bca9851d8eaf02 v1.1.2
+Author:	vince <chuckystar@gmail.com>
+Date:	Wed May 6 18:54:14 2015 +0200
+
+commit 89fe1c05204910be80d01c15a6bca9851d8eaf02
+Author: vince <chuckystar@gmail.com>
+Date:   Wed May 6 18:54:14 2015 +0200
+
+    drop 5
+
