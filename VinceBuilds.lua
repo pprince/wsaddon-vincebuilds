@@ -778,7 +778,9 @@ function VinceBuilds:LoadActionSet(actionSet)
 		AbilityBook.SetCurrentSpec(actionSet.spec)
 		return
 	end
-	
+
+        
+
 	self.ResetSpellTiers()
 	
 	for abilityId, tier in pairs(actionSet.abilityTiers) do
@@ -791,8 +793,17 @@ function VinceBuilds:LoadActionSet(actionSet)
 		currentActionSet[key] = abilityId
 	end
 
+
         if actionSet.pathSkill then
             currentActionSet[10] = actionSet.pathSkill
+
+            -- Update the internals of Carbine's PathFrame addon, lest it undo our changes.
+            addonPathFrame = Apollo.GetAddon("PathFrame")
+            if addonPathFrame then
+                if addonPathFrame.nSelectedPathId then
+                    addonPathFrame.nSelectedPathId = actionSet.pathSkill
+                end
+            end
         end
 
 	local result = ActionSetLib.RequestActionSetChanges(currentActionSet) -- ActionSetLib.CodeEnumLimitedActionSetResult
